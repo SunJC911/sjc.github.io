@@ -85,7 +85,10 @@ try:
 					else:
 						names[no.split()[0]] = a
 		elif no.split()[0] == "看看":  # 输出指定变量值
-			print(trans_to_cn(names[no.split()[1]]))
+			if no.split()[0] in names.keys():
+				print(trans_to_cn(names[no.split()[1]]))
+			else:
+				print("没有声明变量！")
 		elif no.split()[0] == "如果":  # 分多种讨论
 			if no.split()[2] == "大于":  # 判断是否大于
 				if names[no.split()[1]] > trans_to_nums(no.split()[3]):  # “则”后的操作语句
